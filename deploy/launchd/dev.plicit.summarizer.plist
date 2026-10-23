@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Nightly summarizer at 23:30 local time. Edit absolute paths below.
+-->
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>dev.plicit.summarizer</string>
+
+    <key>ProgramArguments</key>
+    <array>
+      <string>/Users/USERNAME/.nvm/versions/node/v22.20.0/bin/pnpm</string>
+      <string>run</string>
+      <string>summarizer</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/USERNAME/dev/plicit</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+      <key>PATH</key>
+      <string>/Users/USERNAME/.nvm/versions/node/v22.20.0/bin:/usr/local/bin:/usr/bin:/bin</string>
+      <key>NODE_ENV</key>
+      <string>production</string>
+    </dict>
+
+    <key>StartCalendarInterval</key>
+    <dict>
+      <key>Hour</key>
+      <integer>23</integer>
+      <key>Minute</key>
+      <integer>30</integer>
+    </dict>
+
+    <key>StandardOutPath</key>
+    <string>/Users/USERNAME/Library/Logs/plicit/summarizer.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/USERNAME/Library/Logs/plicit/summarizer.err.log</string>
+  </dict>
+</plist>

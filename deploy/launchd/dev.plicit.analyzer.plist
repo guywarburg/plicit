@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Hourly analyzer pass. Edit absolute paths below before installing.
+-->
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>dev.plicit.analyzer</string>
+
+    <key>ProgramArguments</key>
+    <array>
+      <string>/Users/USERNAME/.nvm/versions/node/v22.20.0/bin/pnpm</string>
+      <string>run</string>
+      <string>analyzer</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/USERNAME/dev/plicit</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+      <key>PATH</key>
+      <string>/Users/USERNAME/.nvm/versions/node/v22.20.0/bin:/usr/local/bin:/usr/bin:/bin</string>
+      <key>NODE_ENV</key>
+      <string>production</string>
+    </dict>
+
+    <key>StartCalendarInterval</key>
+    <dict>
+      <key>Minute</key>
+      <integer>5</integer>
+    </dict>
+
+    <key>StandardOutPath</key>
+    <string>/Users/USERNAME/Library/Logs/plicit/analyzer.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/USERNAME/Library/Logs/plicit/analyzer.err.log</string>
+  </dict>
+</plist>

@@ -1,0 +1,33 @@
+# Remote deployment: one container per role, sharing a named data volume.
+# Quick start:
+#   cp .env.example .env  # then fill in
+#   docker compose -f deploy/docker/compose.yml up -d
+services:
+  listener:
+    build:
+      context: ../..
+      dockerfile: deploy/docker/Dockerfile
+    image: plicit:latest
+    restart: unless-stopped
+    env_file: ../../.env
+    volumes:
+      - plicit-data:/app/data
+    command: ["pnpm", "run", "listener"]
+
+  cron:
+    image: plicit:latest
+    depends_on:
+      - listener
+    restart: unless-stopped
+    env_file: ../../.env
+    volumes:
+      - plicit-data:/app/data
+    # Use supercronic so we don't need a TTY-attached crond.
+    command: >-
+      sh -c 'curl -fsSLo /usr/local/bin/supercronic
+        https://github.com/aptible/supercronic/releases/latest/download/supercronic-linux-amd64
+        && chmod +x /usr/local/bin/supercronic
+        && /usr/local/bin/supercronic /app/deploy/docker/crontab'
+
+volumes:
+  plicit-data:

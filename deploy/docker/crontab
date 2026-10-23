@@ -1,0 +1,3 @@
+# Plicit cron schedule (UTC inside container; set TZ in .env to control display only)
+5 * * * * cd /app && pnpm run analyzer >> /app/data/analyzer.log 2>&1
+30 23 * * * cd /app && pnpm run summarizer >> /app/data/summarizer.log 2>&1

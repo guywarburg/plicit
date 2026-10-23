@@ -1,0 +1,22 @@
+{
+  "name": "@plicit/analyzer",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "build": "tsc -p tsconfig.build.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.93.0",
+    "@plicit/config": "workspace:*",
+    "@plicit/db": "workspace:*",
+    "@plicit/llm": "workspace:*",
+    "@plicit/types": "workspace:*",
+    "drizzle-orm": "^0.38.3",
+    "pino": "^9.6.0",
+    "pino-pretty": "^13.0.0"
+  }
+}

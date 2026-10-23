@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Always-on Plicit listener. Install with:
+    cp deploy/launchd/dev.plicit.listener.plist ~/Library/LaunchAgents/
+    Edit the absolute paths below to match your machine.
+    launchctl load ~/Library/LaunchAgents/dev.plicit.listener.plist
+
+  Tail logs:
+    tail -f /Users/USERNAME/Library/Logs/plicit/listener.log
+-->
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>dev.plicit.listener</string>
+
+    <key>ProgramArguments</key>
+    <array>
+      <string>/Users/USERNAME/.nvm/versions/node/v22.20.0/bin/pnpm</string>
+      <string>--filter</string>
+      <string>@plicit/listener</string>
+      <string>start</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/USERNAME/dev/plicit</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+      <key>PATH</key>
+      <string>/Users/USERNAME/.nvm/versions/node/v22.20.0/bin:/usr/local/bin:/usr/bin:/bin</string>
+      <key>NODE_ENV</key>
+      <string>production</string>
+    </dict>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>KeepAlive</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/USERNAME/Library/Logs/plicit/listener.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/USERNAME/Library/Logs/plicit/listener.err.log</string>
+
+    <key>ThrottleInterval</key>
+    <integer>10</integer>
+  </dict>
+</plist>

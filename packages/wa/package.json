@@ -1,0 +1,22 @@
+{
+  "name": "@plicit/wa",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./ipc": "./src/ipc.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "tsc -p tsconfig.build.json",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@plicit/config": "workspace:*",
+    "baileys": "~6.7.21",
+    "pino": "^9.6.0"
+  }
+}
